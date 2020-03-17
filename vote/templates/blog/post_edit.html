@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<h1> New Post </h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+	{{ form.as_p }}
+	<button type="submit" class="save btn btn-default">SAVE</button>
+	</form>
+	<div class="outside-panel">
+		<div class="avata">
+		사용자 계정 및 별명
+		</div>
+		<div class="inside-panel" >
+			<div calss="catagori">
+				<form>
+					<select name="category" style="width: 100%">
+						<option value>게시판을 선택해 주세요</option>
+						<option value="1">학교행정</option>
+						<option value="2">자유게시판</option>
+					</select>
+				</form>
+			</div>
+			<div class="title">
+				<input type="text" name="title" required="" value="" placeholder="제목을 입력해 주세요." class="form-control" id="title" style="width: 100%">
+			</div>
+			<div class="tag">
+				<input type="text" name="tagString" placeholder="#태그" style="width: 100%">
+			</div>
+			<div class="text">
+				<textarea name="content.text" id="summernote" rows="20" class="form-control input-block-level" style="width: 100%"></textarea>
+			</div>
+		</div>
+	</div>
+	<a href="" class="btn btn-default btn-wide" onclick="return confirm('당신의 의견을 마음속에만 담아 두시겠습니까?')">취소</a>
+	<input type="submit" name="create" class="create btn btn-success btn-wide pull-right" value="등록" id="create">
+{% endblock %}
